@@ -1,5 +1,7 @@
 # crypto-tools
+
 A collection of tools created for the cryptography course at RUB. If you would like to contribute, feel free to do so!
+*PLEASE NOTE: These tools are not intended for secure encryption of files. The implementations are just for educational purposes.*
 
 ## ROADMAP
 
