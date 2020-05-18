@@ -6,8 +6,8 @@ import argparse
 from extended_euclid import Extended_Euclid
 
 # create top-level parser
-parser = argparse.ArgumentParser(prog='crypto-wizard', description="crypto-wizard 0.0.1 ( https://github.com/alexanderbittner/crypto-tools )")
-parser.add_argument('--version', action='version', version='%(prog)s 0.0.1')
+parser = argparse.ArgumentParser(prog='crypto-wizard', description="crypto-wizard 0.0.2 ( https://github.com/alexanderbittner/crypto-tools )")
+parser.add_argument('--version', action='version', version='%(prog)s 0.0.2')
 
 verbosity_group = parser.add_mutually_exclusive_group()
 verbosity_group.add_argument("-v", "--verbose", action="count", default=0)
