@@ -18,3 +18,6 @@ These tools are on the roadmap to being included:
 - RSA functionality
 - ECC tooling
 - Hashing
+- stream ciphers
+- LFSRs
+- old stuff, such as rot13
