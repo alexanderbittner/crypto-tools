@@ -4,6 +4,7 @@ import sys
 import argparse
 
 from extended_euclid import Extended_Euclid
+from order_calc import Order_Calc
 
 # create top-level parser
 parser = argparse.ArgumentParser(prog='crypto-wizard', description="crypto-wizard 0.0.2 ( https://github.com/alexanderbittner/crypto-tools )")
@@ -18,7 +19,8 @@ parser.add_argument('-o', '--output', nargs='?', type=argparse.FileType('w'), de
 
 mode_group = parser.add_mutually_exclusive_group(required=True)
 
-mode_group.add_argument('--eea', '--extended_euclid',  nargs=2, type=int, help="Extended Euclidean Algorithm.")
+mode_group.add_argument('--eea', '--extended-euclid', dest="extended_euclid",  nargs=2, type=int, help="Extended Euclidean Algorithm.")
+mode_group.add_argument('--order-calc', dest="order_calc", nargs=2, type=int, help="Calculates the order of a number in a group")
 
 
 
@@ -49,5 +51,14 @@ if verbosity <0:
 if verbosity >= 2:
     print("[INFO]:    outfile is "+str(args.output))
 
-if(args.eea):
-    print("[INFO]:    Final Result is: {}".format(Extended_Euclid.eea(Extended_Euclid, verbosity, args.eea[0], args.eea[1])))
+try:
+    if(args.eea):
+        print("[INFO]:    Final Result is: {}".format(Extended_Euclid.eea(Extended_Euclid, verbosity, args.eea[0], args.eea[1])))
+except Exception as e:
+    pass
+
+try:
+    if(args.order_calc):
+        print("[INFO]:    Final Result is: {}".format(Order_Calc.order(Order_Calc,verbosity,args.order_calc[0],args.order_calc[1])))
+except Exception as e:
+    pass
