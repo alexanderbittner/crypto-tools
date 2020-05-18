@@ -30,3 +30,10 @@
 *.exe
 *.out
 *.app
+
+# in and out files
+in.txt
+out.txt
+
+# all temp files
+temp.*
