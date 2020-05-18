@@ -19,5 +19,4 @@ if(mode_string != "--mode"):
     exit(1)
 
 if(mode=='ecc'):
-    #more stuff here
-
+    # handle the ecc things here
