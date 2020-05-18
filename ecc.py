@@ -1,3 +1,4 @@
+from extended_euclid import eea
 class Curve:
     
     def __init__(self, a, b, p):
@@ -11,7 +12,7 @@ class Point:
         self.y = y
 
 testpoint1 = Point(35, 17)
-testpoint2 = Point(3, 1)
+testpoint2 = Point(3, 36)
 testcurve = Curve(2, 5, 37)
 
 def check(point, curve): #checks if the point is on the curve
@@ -26,12 +27,12 @@ def point_add(point1, point2, curve):
     if check(point1, curve) == 0 or check(point2, curve) == 0:
         print("point is not on curve.")
         return(0)
-    s = (point2.y - point1.y)/(point2.x - point1.x) #EEA needed here
+    inv = eea(((point2.x - point1.x)%curve.param_p), curve.param_p)
+    s = ((point2.y - point1.y)*inv) % curve.param_p
     new_x = (s*s - point1.x - point2.x) % curve.param_p
     new_y = (s*(point1.x - new_x)-point1.y) % curve.param_p
     point3 = Point(new_x, new_y)
-    print (new_x, new_y)
+    print ("New Point: (",new_x,",",new_y,")")
     return(point3)
 
-newPoint = point_add(testpoint1, testpoint2, testcurve)
-print(newPoint.x, newPoint.y)
+newPoint = point_add(testpoint1, testpoint2, testcurve) #test
