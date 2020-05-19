@@ -37,7 +37,7 @@ class Elliptic_Curves:
         Ex = Extended_Euclid()
 
         if self.check(verbosity, point, curve) == 0:
-            print("[ERROR]:    Point is not on curve.")
+            print("[ERROR]:   Point is not on curve.")
             return 0
         if point.is_neutral == True:
             new_x = float('inf')
@@ -62,10 +62,10 @@ class Elliptic_Curves:
         k = 1
 
         if self.check(verbosity, point1, curve) == 0: 
-            print("[ERROR]:    Point 1 is not on curve.")
+            print("[ERROR]:   Point 1 is not on curve.")
             return(0)
         if self.check(verbosity, point2, curve) == 0:
-            print("[ERROR]:    Point 2 is not on curve.")
+            print("[ERROR]:   Point 2 is not on curve.")
             return(0)            
         if(verbosity>=1):
             print("[INFO]:    Computing ({}, {}) + ({}, {})".format(point1.x, point1.y, point2.x, point2.y))
@@ -105,10 +105,10 @@ class Elliptic_Curves:
     def point_substract(self, verbosity, point1, point2, curve):
         
         if self.check(verbosity, point1, curve) == 0: 
-            print("[ERROR]:    Point 1 is not on curve.")
+            print("[ERROR]:   Point 1 is not on curve.")
             return(0)
         if self.check(verbosity, point2, curve) == 0:
-            print("[ERROR]:    Point 2 is not on curve.")
+            print("[ERROR]:   Point 2 is not on curve.")
             return(0)            
         
         if(verbosity>=1):
