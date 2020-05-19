@@ -22,6 +22,8 @@ class Elliptic_Curves:
         pass        
 
     def check(self, verbosity, point, curve): #checks if the point is on the curve
+        if verbosity>=1:
+            print("[INFO]:    Checking if point ({}, {}) is on curve".format(point.x, point.y))
         if point.is_neutral == True:
             return 1
         y = (point.y * point.y) % curve.param_p
@@ -41,7 +43,7 @@ class Elliptic_Curves:
             new_x = float('inf')
             new_y = float('inf')
         else:
-            inv = Ex.eea(verbosity, ((point.y*point.y)%curve.param_p), curve.param_p)    
+            inv = Ex.eea(verbosity, ((2*point.y)%curve.param_p), curve.param_p)    
             s = ((3*(point.x*point.x))+curve.param_a)*inv
             new_x = (s*s - point.x - point.x) % curve.param_p
             new_y = (s*(point.x - new_x)-point.y) % curve.param_p
@@ -121,7 +123,7 @@ class Elliptic_Curves:
 pointA = Point(3, 36)
 PointB = Point(35, 17)
 PointC = Point(float('inf'), float('inf'))
-testcurve = Curve(2, 5, 37)
+PointD = Point(148, 508)
+testcurve = Curve(41, 299, 1051)
 EC = Elliptic_Curves()
-EC.point_add(1, pointA, PointB, testcurve)
-EC.point_substract(1, pointA, PointC, testcurve)
+EC.point_double(1, PointD, testcurve)
